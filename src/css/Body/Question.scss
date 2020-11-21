@@ -1,0 +1,105 @@
+.question-check:checked ~ .question-accordion dt {
+  max-height: 65px;
+  padding-left: 1em;
+  opacity: 1;
+  position: relative;
+
+  label {
+    font-weight: normal;
+  }
+}
+
+.question-check:checked ~ label:after {
+  content: "-";
+}
+
+.main-question {
+  .question_accordion {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .question_accordion ul {
+    list-style: none;
+    margin: 0;
+  }
+  .question_accordion > label {
+    display: block;
+    padding: 20px;
+    border-bottom: 1px solid #d9d9d9;
+    position: relative;
+    cursor: pointer;
+    color: #000;
+
+    &:hover {
+      color: #ff7e00;
+    }
+
+    &:after {
+      content: "+";
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+  }
+
+  .toggle {
+    display: none;
+  }
+  .toggle ~ ul {
+    max-height: 0;
+    overflow: hidden;
+  }
+  .toggle:checked + ul {
+    max-height: 1500px;
+  }
+
+  .toggle:checked ~ ul > li.menu_f1,
+  .toggle:checked ~ ul > label {
+    display: block;
+    border-bottom: 1px solid #d9d9d9;
+    position: relative;
+    cursor: pointer;
+    padding: 20px 20px 20px 30px;
+
+    &:after {
+      content: "+";
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+
+    &:hover {
+      color: #ff7e00;
+      a {
+        color: #ff7e00;
+      }
+    }
+  }
+
+  .toggle:checked ~ ul > label {
+    position: relative;
+  }
+
+  .toggle:checked ~ ul > li.menu_f2 {
+    padding: 20px 20px 20px 40px;
+    border-bottom: 1px solid #d9d9d9;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  .toggle:checked + label {
+    &:after {
+      content: "-";
+    }
+  }
+  .toggle ~ ul > .toggle:checked + label {
+    &:after {
+      content: "-";
+    }
+  }
+}

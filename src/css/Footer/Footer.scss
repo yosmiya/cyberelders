@@ -1,0 +1,46 @@
+footer {
+  padding-top: 20px;
+  height: 63px;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+
+  & p {
+    font-size: 0.75rem;
+  }
+
+  & ul {
+    font-size: 0.75em;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  & li {
+    margin-right: 1em;
+  }
+}
+
+/* スマホ用 */
+@media screen and (max-width: 620px) {
+  footer {
+    padding: 0px;
+    height: 100%;
+
+    & p {
+      padding: 10px;
+    }
+
+    & a {
+      padding: 10px;
+      display: block;
+    }
+
+    & ul {
+      flex-direction: column;
+    }
+
+    & li {
+      margin-right: 0px;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}
