@@ -1,0 +1,24 @@
+.p-footer__navigation {
+  font-size: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.p-footer__link {
+  margin-right: 1em;
+}
+
+.p-footer__logo {
+  font-size: 0.75rem;
+}
+
+@media screen and (max-width: 920px) {
+  .p-footer__navigation {
+    flex-direction: column;
+  }
+
+  .p-footer__link {
+    padding-bottom: 5px;
+    margin-right: 0;
+  }
+}

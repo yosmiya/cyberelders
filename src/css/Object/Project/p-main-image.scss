@@ -1,0 +1,76 @@
+.p-main-image {
+  position: relative;
+}
+
+.p-main-image__inner {
+  width: 100vw;
+  // height: 0;
+  height: 400px;
+  //background: url(/admin/dev/build/images/main5.jpg) no-repeat center center;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.6),
+      rgba(0, 255, 0, 0)
+    ),
+    url(/admin/dev/build/images/main3.jpg);
+
+  background-size: cover;
+
+  /* 表示画像の高さ ÷ 表示画像の幅 × 100 */
+  //padding-top: 40.25%;
+}
+
+.p-main-image__container {
+  position: absolute;
+  top: 0;
+  display: flex;
+  height: 100%;
+  margin-left: 50px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.p-main-image__copy {
+  // font-size: 5vw;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.p-main-image__inquiry {
+  margin-right: 20px;
+}
+
+.p-main-image__content {
+}
+.p-main-image__button {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 920px) {
+  .p-main-image__inner {
+    /* 表示画像の高さ ÷ 表示画像の幅 × 100 */
+    //padding-top: 65.25%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .p-main-image__copy {
+    font-size: 1.3rem;
+  }
+  .p-main-image__inquiry {
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+
+  .p-main-image__container {
+    margin-left: 0px;
+    width: 100%;
+    align-items: center;
+  }
+  .p-main-image__button {
+    flex-direction: column;
+  }
+}

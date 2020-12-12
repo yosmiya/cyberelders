@@ -1,0 +1,12 @@
+.u-anchor__adjust {
+  /*アンカーリンク押下後の位置調整*/
+  margin-top: -130px;
+  padding-top: 130px;
+}
+
+@media screen and (max-width: 920px) {
+  .u-anchor__adjust {
+    margin-top: -90px;
+    padding-top: 90px;
+  }
+}

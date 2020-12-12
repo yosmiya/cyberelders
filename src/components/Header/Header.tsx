@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
-import "css/Header/Header.scss";
 import LogoImage from "images/logo.png";
+import { Link } from "react-router-dom";
 
 const Header: FC = () => {
   const [stateOpenSpMenu, setStateOpenSpMenu] = useState(false);
@@ -12,98 +12,140 @@ const Header: FC = () => {
   };
 
   return (
-    <header>
-      <div className="header_inner">
-        <div className="pc-menu">
-          <div className="l-header-logo">
-            <div className="header-logo">
-              <a href="/">
-                <img alt="logo" src={LogoImage} />
+    <header className="l-header p-header">
+      <div className="p-header__pc">
+        <div className="c-logo">
+          <Link to="/">
+            <img
+              alt="サイバーエルダーズ"
+              src={LogoImage}
+              className="c-logo__image"
+            />
+          </Link>
+        </div>
+        <nav className="p-header__navigation c-navigation">
+          <ul>
+            <li className="c-navigation__list">
+              <a href="./#beginner" className="c-navigation__link">
+                初めての方へ
               </a>
+            </li>
+            <li className="c-navigation__list">
+              <a href="./#teacher" className="c-navigation__link">
+                講師紹介
+              </a>
+            </li>
+            <li className="c-navigation__list">
+              <a href="./#course" className="c-navigation__link">
+                コース
+              </a>
+            </li>
+            <li className="c-navigation__list">
+              <a href="./#question" className="c-navigation__link">
+                よくある質問
+              </a>
+            </li>
+            <li className="c-navigation__list">
+              <a href="./#contact" className="c-navigation__link">
+                お問い合わせ
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div className="p-header__inquiry">
+          <Link
+            to="/counseling"
+            className="c-button__inquiry c-button__inquiry-icon"
+          >
+            無料カウンセリング申込み
+          </Link>
+        </div>
+      </div>
+
+      <div className="p-header__sp">
+        <div className="c-logo">
+          <Link to="/">
+            <img
+              alt="サイバーエルダーズ"
+              src={LogoImage}
+              className="c-logo__image"
+            />
+          </Link>
+        </div>
+        <div className="p-header__menu">
+          <input
+            type="checkbox"
+            id="c-menu__checkbox--id"
+            className="c-menu__checkbox"
+            onChange={openSpNav}
+            checked={stateOpenSpMenu}
+          />
+          <label className="c-menu" htmlFor="c-menu__checkbox--id">
+            <div className="c-menu__inner">
+              <div className="c-menu__inner--line"></div>
+              <div className="c-menu__inner--line"></div>
+              <div className="c-menu__inner--line"></div>
+              <div className="c-menu__inner--label">MENU</div>
             </div>
-          </div>
-          <nav className="l-header__nav">
-            <ul className="global-nav-menu">
-              <li>
-                <a href="/#beginner">初めての方へ</a>
+          </label>
+          <nav className="p-header__navigation c-navigation">
+            <ul>
+              <li className="c-navigation__list">
+                <a
+                  href="./#beginner"
+                  className="c-navigation__link"
+                  onClick={closeSpNav}
+                >
+                  初めての方へ
+                </a>
               </li>
-              <li>
-                <a href="/#teacher">講師紹介</a>
+              <li className="c-navigation__list">
+                <a
+                  href="./#teacher"
+                  className="c-navigation__link"
+                  onClick={closeSpNav}
+                >
+                  講師紹介
+                </a>
               </li>
-              <li>
-                <a href="/#course">コース</a>
+              <li className="c-navigation__list">
+                <a
+                  href="./#course"
+                  className="c-navigation__link"
+                  onClick={closeSpNav}
+                >
+                  コース
+                </a>
               </li>
-              <li>
-                <a href="/#question">よくある質問</a>
+              <li className="c-navigation__list">
+                <a
+                  href="./#question"
+                  className="c-navigation__link"
+                  onClick={closeSpNav}
+                >
+                  よくある質問
+                </a>
               </li>
-              <li>
-                <a href="/#contact">お問い合わせ</a>
+              <li className="c-navigation__list">
+                <a
+                  href="./#contact"
+                  className="c-navigation__link"
+                  onClick={closeSpNav}
+                >
+                  お問い合わせ
+                </a>
               </li>
             </ul>
+            <div className="p-header__inquiry">
+              <Link
+                to="/counseling"
+                className="c-button c-button__inquiry c-button__inquiry-icon"
+                onClick={closeSpNav}
+              >
+                無料カウンセリング申込み
+              </Link>
+            </div>
           </nav>
-          <div className="global-nav-sns">
-            <div className="global-nav-inquiry">
-              <a href="/counseling">無料カウンセリング申込み</a>
-            </div>
-          </div>
-        </div>
-
-        <div className="sp-menu">
-          <div className="l-header-logo">
-            <div className="header-logo">
-              <img alt="logo" src={LogoImage} />
-            </div>
-          </div>
-          <div className="l-header__menu">
-            <input
-              type="checkbox"
-              id="sp-nav-checkbox"
-              onChange={openSpNav}
-              checked={stateOpenSpMenu}
-            />
-            <label className="sp-nav-btn-category" htmlFor="sp-nav-checkbox">
-              <div className="sp-nav-btn">
-                <div className="sp-nav-btn-line"></div>
-                <div className="sp-nav-btn-line"></div>
-                <div className="sp-nav-btn-line"></div>
-                <div className="sp-nav-btn-lavel">MENU</div>
-              </div>
-            </label>
-            <nav className="l-header__nav">
-              <ul className="global-nav-menu">
-                <li>
-                  <a href="#beginner" onClick={closeSpNav}>
-                    初めての方へ
-                  </a>
-                </li>
-                <li>
-                  <a href="#teacher" onClick={closeSpNav}>
-                    講師紹介
-                  </a>
-                </li>
-                <li>
-                  <a href="#course" onClick={closeSpNav}>
-                    コース
-                  </a>
-                </li>
-                <li>
-                  <a href="#question" onClick={closeSpNav}>
-                    よくある質問
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" onClick={closeSpNav}>
-                    お問い合わせ
-                  </a>
-                </li>
-              </ul>
-              <ul className="global-nav-sns">
-                <li className="global-nav-inquiry">
-                  <a href="/counseling">無料カウンセリングを申し込む</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
         </div>
       </div>
     </header>

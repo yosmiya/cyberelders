@@ -22,19 +22,10 @@ const useForm = (callback: Function, validate: Function) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      if (
-        !(
-          values.name === "" ||
-          values.name === undefined ||
-          values.name === null
-        )
-      ) {
-        callback();
-      }
-
+      callback();
       setIsSubmitting(false);
     }
-  }, [callback, errors, isSubmitting, values.name]);
+  }, [callback, errors, isSubmitting]);
 
   const handleSubmit = (
     event: React.MouseEvent<HTMLInputElement, MouseEvent>

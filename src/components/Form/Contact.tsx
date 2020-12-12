@@ -1,19 +1,13 @@
 import React, { FC, useState } from "react";
-import axios from "axios";
-import "css/Form/Contact.scss";
-import "css/common/Form.scss";
 import useForm from "./useForm";
 import validate from "./ContactFormValidationRules";
+import Complete from "components/Form/Complete";
 
 const Contact: FC = () => {
-  const [classNameThankyou, setClassNameThankyou] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [cssDispDialog, setCssDispDialog] = useState("");
 
   const sendData = () => {
-    // パラメータの指定
-    // let params = new URLSearchParams();
-    // params.append('input_val', this.value);
-
     if (
       values.name === "" ||
       values.name === undefined ||
@@ -22,45 +16,48 @@ const Contact: FC = () => {
       return;
     }
 
-    setIsLoading(true);
+    const setCounselingData = async () => {
+      try {
+        setIsLoading(true);
 
-    // api/contacts POST
-    axios({
-      method: "POST",
-      url: "http://localhost/Sites/cyberelders/api/contacts.php",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: values,
-    })
-      .then((res) => {
-        //alert(res.data);
-        //console.log(res.data);
+        const response = await fetch("/admin/dev/php/api/contacts.php", {
+          method: "POST",
+          body: JSON.stringify(values),
+        });
 
-        if (res.data.status) {
-          showThankyou();
+        if (!response.ok) {
+          throw new Error("例外が発生");
         } else {
-          alert(res.data.error);
+          const jsonResponse = await response.json();
+          console.log(jsonResponse);
+          if (!jsonResponse.status) {
+            throw new Error("例外が発生");
+          } else {
+            handleShowDialog();
+          }
         }
-
+      } catch (error) {
+        alert("申し訳ございません、再度お試しください");
+      } finally {
         setIsLoading(false);
+      }
+    };
 
-        //result.textContent = res.data.text; // 結果の文字列を表示する
-        //result.style.color = res.data.color; // 結果の色を適用する
-      })
-      .catch((error) => {
-        // エラーを受け取る
-        console.log(error);
-        setIsLoading(false);
-      });
+    setCounselingData();
   };
 
-  const showThankyou = () => {
-    setClassNameThankyou("show-modal-form");
+  const changeDispDialogCss = (isDispDialog: boolean) => {
+    return isDispDialog
+      ? setCssDispDialog("c-modal--show")
+      : setCssDispDialog("");
   };
 
-  const closeThankyou = () => {
-    setClassNameThankyou("");
+  const handleShowDialog = () => {
+    changeDispDialogCss(true);
+  };
+
+  const handleCloseDialog = () => {
+    changeDispDialogCss(false);
   };
 
   const {
@@ -163,14 +160,14 @@ const Contact: FC = () => {
                 {isLoading ? (
                   <input
                     type="button"
-                    className="no_outline c-submit c-submit--loading"
+                    className="c-submit c-submit--loading"
                     value="送信中・・・"
                     disabled
                   />
                 ) : (
                   <input
                     type="submit"
-                    className="no_outline c-submit"
+                    className="c-submit"
                     value="同意して送信する"
                     onClick={handleSubmit}
                   />
@@ -207,35 +204,10 @@ const Contact: FC = () => {
           </div>
         </div>
       </div>
-      <div className="l-modal">
-        <input type="checkbox" className="l-modal__check" id="modal-check" />
-        <div className={`l-modal__body ${classNameThankyou}`}>
-          <div className="l-modal__window">
-            <div className="l-modal__inner">
-              <div className="l-modal__content">
-                <h3>送信完了しました</h3>
-                <div>
-                  お問い合わせありがとうございます。
-                  <br />
-                  お問い合わせについては可能な限り1営業日以内に
-                  <br />
-                  返信させて頂きますが、
-                  <br />
-                  最大3営業日掛かる場合がございますので、予めご了承ください。
-                </div>
-                <div className="l-modal__form">
-                  <input
-                    type="button"
-                    value="閉じる"
-                    className="c-btn c-btn__close"
-                    onClick={closeThankyou}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Complete
+        onClickClose={handleCloseDialog}
+        cssDispDialog={cssDispDialog}
+      />
     </section>
   );
 };

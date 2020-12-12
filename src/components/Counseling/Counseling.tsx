@@ -1,61 +1,56 @@
 import React, { FC, useState } from "react";
-import axios from "axios";
-import "css/common/Form.scss";
-import "css/Counseling/Counseling.scss";
 import useForm from "./useForm";
 import validate from "./CounselingFormValidationRules";
 import Complete from "components/Counseling/Complete";
-
-import usePostCounselingData from "hooks/use-post-counseling-data";
 
 const Counseling: FC = () => {
   const [isShowCourse, setIsShowCourse] = useState(false);
   const [courseTitle, setCourseTitle] = useState("");
   const [courseList, setCourseList] = useState<String[]>([]);
-  const [isPosting, setIsPosting] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [cssDispDialog, setCssDispDialog] = useState("");
 
-  const useSendData = () => {
-    const { isLoading, isSuccess } = usePostCounselingData(values);
-
-    setIsPosting(isLoading);
-
-    if (isSuccess) {
-      handleShowDialog();
+  const sendData = () => {
+    if (
+      values.name === "" ||
+      values.name === undefined ||
+      values.name === null
+    ) {
+      return;
     }
-    // const setCounselingData = async () => {
-    //   try {
-    //     setIsLoading(true);
 
-    //     const response = await fetch(
-    //       "http://localhost/Sites/cyberelders/api/counseling.php",
-    //       {
-    //         method: "POST",
-    //         body: JSON.stringify(values),
-    //       }
-    //     );
+    const setCounselingData = async () => {
+      try {
+        setIsLoading(true);
 
-    //     console.log(response.status); // => 200
-    //     if (!response.ok) {
-    //       alert("申し訳ございません、再度お試しください");
-    //     } else {
-    //       const jsonResponse = await response.json();
-    //       console.log(jsonResponse);
-    //       handleShowDialog();
-    //     }
-    //   } catch (error) {
-    //     alert("申し訳ございません、再度お試しください");
-    //   } finally {
-    //     setIsLoading(false);
-    //   }
-    // };
+        const response = await fetch(
+          "http://localhost/Sites/cyberelders/api/counseling.php",
+          {
+            method: "POST",
+            body: JSON.stringify(values),
+          }
+        );
 
-    // setCounselingData();
+        if (!response.ok) {
+          alert("申し訳ございません、再度お試しください");
+        } else {
+          // const jsonResponse = await response.json();
+          // console.log(jsonResponse);
+          handleShowDialog();
+        }
+      } catch (error) {
+        alert("申し訳ございません、再度お試しください");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    setCounselingData();
   };
 
   const changeDispDialogCss = (isDispDialog: boolean) => {
     return isDispDialog
-      ? setCssDispDialog("show-modal-form")
+      ? setCssDispDialog("c-modal--show")
       : setCssDispDialog("");
   };
 
@@ -74,7 +69,7 @@ const Counseling: FC = () => {
     handleTextareaChange,
     handleSelectChange,
     handleSubmit,
-  } = useForm(useSendData, validate);
+  } = useForm(sendData, validate);
 
   let courses: { [index: string]: { title: string; value: string[] } } = {};
 
@@ -299,17 +294,17 @@ const Counseling: FC = () => {
           <div className="p-form">
             <div className="p-form__body">
               <div>
-                {isPosting ? (
+                {isLoading ? (
                   <input
                     type="button"
-                    className="no_outline c-submit c-submit--loading"
+                    className=" c-submit c-submit--loading"
                     value="送信中・・・"
                     disabled
                   />
                 ) : (
                   <input
                     type="submit"
-                    className="no_outline c-submit"
+                    className=" c-submit"
                     value="同意して送信する"
                     onClick={handleSubmit}
                   />

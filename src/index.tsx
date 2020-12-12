@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Top from "./components/Top";
+import "css/style.scss";
+import Main from "./components/Main";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Top />
+    <Main />
   </React.StrictMode>,
   document.getElementById("root")
 );

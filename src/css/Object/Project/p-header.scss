@@ -1,0 +1,38 @@
+.p-header__pc {
+  display: flex;
+  align-items: center;
+}
+
+.p-header__sp {
+  display: none;
+}
+
+.p-header__inquiry {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 920px) {
+  .p-header__pc {
+    display: none;
+  }
+
+  .p-header__sp {
+    display: flex;
+    padding-top: 10px;
+  }
+
+  .p-header__navigation {
+    display: none;
+  }
+
+  .p-header__inquiry {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    padding: 20px 0;
+  }
+
+  .p-header__menu {
+    margin-left: auto;
+  }
+}
