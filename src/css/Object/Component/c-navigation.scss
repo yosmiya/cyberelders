@@ -1,25 +1,29 @@
 .c-navigation {
   margin: 0;
   padding: 0;
-  margin-right: 20px;
+  //margin-right: 20px;
+
+  & > ul {
+    display: flex;
+  }
 }
 
 .c-navigation__list {
   display: inline-block;
   padding: 0 15px;
 
-  &:last-child {
-    padding-right: 0;
-  }
+  // &:last-child {
+  //   padding-right: 0;
+  // }
 }
 
 .c-navigation__link {
   display: block;
-  padding: 25px 0;
+  //padding: 25px 0;
   text-align: center;
   text-decoration: none;
   color: #333;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
 
   &:hover {

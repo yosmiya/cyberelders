@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import useForm from "./useForm";
-import validate from "./CounselingFormValidationRules";
+import validate from "./Validation";
 import Complete from "components/Counseling/Complete";
 
 const Counseling: FC = () => {
@@ -19,24 +19,25 @@ const Counseling: FC = () => {
       return;
     }
 
-    const setCounselingData = async () => {
+    const setData = async () => {
       try {
         setIsLoading(true);
 
-        const response = await fetch(
-          "http://localhost/Sites/cyberelders/api/counseling.php",
-          {
-            method: "POST",
-            body: JSON.stringify(values),
-          }
-        );
+        const response = await fetch("/admin/dev/php/api/counseling.php", {
+          method: "POST",
+          body: JSON.stringify(values),
+        });
 
         if (!response.ok) {
-          alert("申し訳ございません、再度お試しください");
+          throw new Error("例外が発生");
         } else {
-          // const jsonResponse = await response.json();
-          // console.log(jsonResponse);
-          handleShowDialog();
+          const jsonResponse = await response.json();
+
+          if (!jsonResponse.status) {
+            throw new Error("例外が発生");
+          } else {
+            handleShowDialog();
+          }
         }
       } catch (error) {
         alert("申し訳ございません、再度お試しください");
@@ -45,7 +46,7 @@ const Counseling: FC = () => {
       }
     };
 
-    setCounselingData();
+    setData();
   };
 
   const changeDispDialogCss = (isDispDialog: boolean) => {
@@ -107,26 +108,28 @@ const Counseling: FC = () => {
   return (
     <section id="counseling" className="p-counseling">
       <h2 className="p-counseling__title">無料カウンセリング</h2>
-      <div className="p-articles">
-        <div className="p-article">
+      <div className="p-article">
+        <div className="p-article__content">
           こちらは無料カウンセリングページです。
           <br />
           どのコースをご希望なのか、ご自身がどうなりたいのかなどお答えいただければと思います。
         </div>
-        <div className="p-article">
+        <div className="p-article__content">
           <div className="p-form">
             <div className="p-form__header">
-              <span className="c-form-header__title">ご興味のある分野</span>
-              <span className="c-form__notice c-form__notice--must">必須</span>
+              <span className="c-form__title">ご興味のある分野</span>
+              <span className="p-form__notice c-form__notice c-form__notice--must">
+                必須
+              </span>
             </div>
-            <div className="p-form__body c-form-content">
+            <div className="p-form__body">
               <div>
-                <span className="c-form-content__header">
+                <span className="c-form__content-header">
                   ご興味のあるコースはどちらになりますか？
                 </span>
                 <select
                   name="course1"
-                  className="c-form-content__select u-mb10"
+                  className="c-form__content-select u-mb10"
                   onChange={changeCourse}
                   required
                 >
@@ -140,11 +143,11 @@ const Counseling: FC = () => {
               {isShowCourse && (
                 <React.Fragment>
                   <div>
-                    <span className="c-form-content__header">
+                    <span className="c-form__content-header">
                       {courseTitle}
                     </span>
                     <select
-                      className="c-form-content__select u-mb10"
+                      className="c-form__content-select u-mb10"
                       name="course2"
                       onChange={handleSelectChange}
                     >
@@ -155,11 +158,11 @@ const Counseling: FC = () => {
                     </select>
                   </div>
                   <div>
-                    <span className="c-form-content__header">
+                    <span className="c-form__content-header">
                       いつまでに作りたいですか？
                     </span>
                     <select
-                      className="c-form-content__select u-mb10"
+                      className="c-form__content-select u-mb10"
                       name="course3"
                       onChange={handleSelectChange}
                     >
@@ -169,11 +172,11 @@ const Counseling: FC = () => {
                     </select>
                   </div>
                   <div>
-                    <span className="c-form-content__header">
+                    <span className="c-form__content-header">
                       学習の動機は何ですか？
                     </span>
                     <select
-                      className="c-form-content__select"
+                      className="c-form__content-select"
                       name="course4"
                       onChange={handleSelectChange}
                     >
@@ -188,33 +191,37 @@ const Counseling: FC = () => {
                 </React.Fragment>
               )}
             </div>
-            {errors.course1 && <p className="c-error">{errors.course1}</p>}
+            {errors.course1 && (
+              <p className="p-form__errmsg c-error">{errors.course1}</p>
+            )}
           </div>
           <div className="p-form">
             <div className="p-form__header">
-              <span className="c-form-header__title">現在のお仕事</span>
+              <span className="c-form__title">現在のお仕事</span>
             </div>
-            <div className="p-form__body c-form-content">
+            <div className="p-form__body">
               <input
                 type="text"
-                className="c-form-content__input"
+                className="c-form__input"
                 name="job"
                 onChange={handleChange}
                 value={values.job || ""}
               />
             </div>
-            {errors.job && <p className="c-error">{errors.job}</p>}
+            {errors.job && (
+              <p className="p-form__errmsg c-error">{errors.job}</p>
+            )}
           </div>
           <div className="p-form">
             <div className="p-form__header">
-              <span className="c-form-header__title">
-                プログラミングのご経験
+              <span className="c-form__title">プログラミングのご経験</span>
+              <span className="p-form__notice c-form__notice c-form__notice--must">
+                必須
               </span>
-              <span className="c-form__notice c-form__notice--must">必須</span>
             </div>
-            <div className="p-form__body c-form-content">
+            <div className="p-form__body">
               <select
-                className="c-form-content__select"
+                className="c-form__content-select"
                 name="exp"
                 onChange={handleSelectChange}
               >
@@ -224,106 +231,118 @@ const Counseling: FC = () => {
                 <option>自分でプログラミングしたことあり（趣味可）</option>
               </select>
             </div>
-            {errors.exp && <p className="c-error">{errors.exp}</p>}
+            {errors.exp && (
+              <p className="p-form__errmsg c-error">{errors.exp}</p>
+            )}
           </div>
           <div className="p-form">
             <div className="p-form__header">
-              <span className="c-form-header__title">氏名</span>
-              <span className="c-form__notice c-form__notice--must">必須</span>
+              <span className="c-form__title">氏名</span>
+              <span className="p-form__notice c-form__notice c-form__notice--must">
+                必須
+              </span>
             </div>
-            <div className="p-form__body c-form-content">
+            <div className="p-form__body">
               <input
                 type="text"
                 placeholder="例）差居場　絵留子"
-                className="c-form-content__input"
+                className="c-form__input"
                 name="name"
                 onChange={handleChange}
                 value={values.name || ""}
               />
             </div>
-            {errors.name && <p className="c-error">{errors.name}</p>}
+            {errors.name && (
+              <p className="p-form__errmsg c-error">{errors.name}</p>
+            )}
           </div>
           <div className="p-form">
             <div className="p-form__header">
-              <span className="c-form-header__title">フリガナ</span>
-              <span className="c-form__notice c-form__notice--must">必須</span>
+              <span className="c-form__title">フリガナ</span>
+              <span className="p-form__notice c-form__notice c-form__notice--must">
+                必須
+              </span>
             </div>
-            <div className="p-form__body c-form-content">
+            <div className="p-form__body">
               <input
                 type="text"
                 placeholder="例）サイバ　エルコ"
-                className="c-form-content__input"
+                className="c-form__input"
                 name="kana"
                 onChange={handleChange}
                 value={values.kana || ""}
               />
             </div>
-            {errors.kana && <p className="c-error">{errors.kana}</p>}
+            {errors.kana && (
+              <p className="p-form__errmsg c-error">{errors.kana}</p>
+            )}
           </div>
           <div className="p-form">
             <div className="p-form__header">
-              <span className="c-form-header__title">メールアドレス</span>
-              <span className="c-form__notice c-form__notice--must">必須</span>
+              <span className="c-form__title">メールアドレス</span>
+              <span className="p-form__notice c-form__notice c-form__notice--must">
+                必須
+              </span>
             </div>
-            <div className="p-form__body c-form-content">
+            <div className="p-form__body">
               <input
                 type="text"
                 placeholder="例）example@cyberelders.co.jp"
-                className="c-form-content__input"
+                className="c-form__input"
                 name="mail"
                 onChange={handleChange}
                 value={values.mail || ""}
               />
             </div>
-            {errors.mail && <p className="c-error">{errors.mail}</p>}
+            {errors.mail && (
+              <p className="p-form__errmsg c-error">{errors.mail}</p>
+            )}
           </div>
           <div className="p-form">
             <div className="p-form__header">
-              <span className="c-form-header__title">ご質問・ご要望</span>
+              <span className="c-form__title">ご質問・ご要望</span>
             </div>
-            <div className="p-form__body c-form-content">
+            <div className="p-form__body">
               <textarea
-                className="c-form-content__input u-h150"
+                className="c-form__input u-h150"
                 name="other"
                 onChange={handleTextareaChange}
                 value={values.other || ""}
               ></textarea>
             </div>
-            {errors.other && <p className="c-error">{errors.other}</p>}
+            {errors.other && (
+              <p className="p-form__errmsg c-error">{errors.other}</p>
+            )}
           </div>
           <div className="p-form">
-            <div className="p-form__body">
-              <div>
-                {isLoading ? (
-                  <input
-                    type="button"
-                    className=" c-submit c-submit--loading"
-                    value="送信中・・・"
-                    disabled
-                  />
-                ) : (
-                  <input
-                    type="submit"
-                    className=" c-submit"
-                    value="同意して送信する"
-                    onClick={handleSubmit}
-                  />
-                )}
-              </div>
-              {errors.all && (
-                <div className="contact_form_error_field">
-                  <p className="c-error">{errors.all}</p>
-                </div>
+            <div className="p-form__submit">
+              {isLoading ? (
+                <input
+                  type="button"
+                  className="c-button c-button__submit c-button--loading"
+                  value="送信中・・・"
+                  disabled
+                />
+              ) : (
+                <input
+                  type="submit"
+                  className="c-button c-button__submit"
+                  value="同意して送信する"
+                  onClick={handleSubmit}
+                />
               )}
-              <div className="p-notice c-notice">
-                <span className="c-notice__text">
-                  フォームを送信することにより、
-                  <a href="#privacypolicy" className="c-notice__link">
-                    プライバシーポリシー
-                  </a>
-                  に同意します
-                </span>
-              </div>
+            </div>
+            {errors.all && (
+              <p className="p-form__errmsg c-error">{errors.all}</p>
+            )}
+            <div className="p-optin c-notice">
+              <span className="p-optin__text">
+                フォームを送信することにより、
+                <a href="#privacypolicy" className="p-optin__link">
+                  プライバシーポリシー
+                </a>
+                に同意します
+              </span>
             </div>
           </div>
         </div>

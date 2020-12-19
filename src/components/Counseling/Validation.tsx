@@ -74,6 +74,7 @@ const validate = (values: State) => {
       errors.other = "ご質問・ご要望は400文字以下で入力してください";
     }
   }
+
   if (Object.keys(errors).length !== 0) {
     errors.all = "入力内容に誤りがあります。再度ご確認ください。";
   }

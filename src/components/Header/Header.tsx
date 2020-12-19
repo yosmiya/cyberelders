@@ -55,9 +55,9 @@ const Header: FC = () => {
         <div className="p-header__inquiry">
           <Link
             to="/counseling"
-            className="c-button__inquiry c-button__inquiry-icon"
+            className="c-button c-button__inquiry c-button__inquiry--header"
           >
-            無料カウンセリング申込み
+            無料カウンセリング申し込み
           </Link>
         </div>
       </div>
@@ -139,10 +139,10 @@ const Header: FC = () => {
             <div className="p-header__inquiry">
               <Link
                 to="/counseling"
-                className="c-button c-button__inquiry c-button__inquiry-icon"
+                className="c-button c-button__inquiry"
                 onClick={closeSpNav}
               >
-                無料カウンセリング申込み
+                無料カウンセリング申し込み
               </Link>
             </div>
           </nav>

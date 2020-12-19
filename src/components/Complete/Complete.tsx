@@ -26,7 +26,7 @@ const Complete: FC<Props> = ({
                 <input
                   type="button"
                   value="閉じる"
-                  className="c-button c-button--close"
+                  className="c-button c-button__close"
                   onClick={onClickClose}
                 />
               </div>

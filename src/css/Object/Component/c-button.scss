@@ -1,34 +1,55 @@
 .c-button {
-  //padding: 0.7rem 1.5rem;
+  display: inline-block;
+  font-size: 0.86rem;
+  font-weight: bold;
+  line-height: 1;
   text-align: center;
-  //font-size: 14px;
+  padding: 0.8rem 1.2rem;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-
-  line-height: 1;
-  font-weight: bold;
-  font-size: 0.86rem;
-  //padding: 0 20px;
-  padding: 0.8rem 1.2rem;
-  //@error: 40px;
-
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-
-  // display: inline-flex;
-  // align-items: center;
-  // justify-content: center;
-  display: inline-block;
+  letter-spacing: 0.05em;
 
   &:hover {
     opacity: 0.8;
   }
 }
 
-.c-button--close {
+.c-button__close {
   background-color: #e6e6e6;
   color: #000;
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.c-button__inquiry {
+  color: #fff;
+  border: 1px solid #ff7e00;
+  background-color: #ff7e00;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.c-button__inquiry--header {
+  font-size: 0.75rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 100px;
+}
+
+.c-button__contact {
+  color: #ff7e00;
+  border: 1px solid #ff7e00;
+  background-color: #fff;
+
+  &:hover {
+    color: #ff7e00;
+  }
 }
 
 .c-button__inquiry-icon {
@@ -44,65 +65,23 @@
   }
 }
 
-.c-button__inquiry {
+.c-button__submit {
+  width: 100%;
   color: #fff;
   border: 1px solid #ff7e00;
   background-color: #ff7e00;
-  // border-radius: 6px;
-  // font-weight: bold;
-  // font-size: 12px;
-  // padding: 0 10px;
-  // height: 40px;
-  // display: inline-flex;
-  // align-items: center;
-  // -webkit-transition: all 0.3s;
-  // transition: all 0.3s;
-  // justify-content: center;
 
   &:hover {
-    opacity: 0.8;
+    color: #fff;
   }
 }
 
-.c-button__contact {
-  color: #ff7e00;
-  border: 1px solid #ff7e00;
-  background-color: #fff;
-  // border-radius: 6px;
-  // font-weight: bold;
-  // font-size: 12px;
-  // padding: 0 20px;
-  // height: 40px;
-  // display: inline-flex;
-  // align-items: center;
-  // -webkit-transition: all 0.3s;
-  // transition: all 0.3s;
-  // justify-content: center;
-}
-
-.c-submit {
-  text-align: center;
-  border-radius: 6px;
-  margin-bottom: 25px;
-  width: 100%;
-  padding: 15px 40px;
-  display: block;
-  letter-spacing: 0.05em;
-  background: #ff7e00;
-  color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-.c-submit:hover {
-  background: #ffa246;
-}
-.c-submit--loading {
+.c-button--loading {
   background-color: #e6e6e6;
   color: #696969;
   cursor: default;
-}
-.c-submit--loading:hover {
-  background-color: #e6e6e6;
+
+  &:hover {
+    color: #696969;
+  }
 }
