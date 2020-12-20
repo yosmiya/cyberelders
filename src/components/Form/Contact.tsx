@@ -2,10 +2,23 @@ import React, { FC, useState } from "react";
 import useForm from "./useForm";
 import validate from "./Validation";
 import Complete from "components/Form/Complete";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [cssDispDialog, setCssDispDialog] = useState("");
+  const [isDisableSubmit, setIsDisableSubmit] = useState(true);
+  const [isHiddenRecaptchaMsg, setIsHiddenRecaptchaMsg] = useState(false);
+
+  const verifyCallback = (value: any) => {
+    setIsDisableSubmit(false);
+    setIsHiddenRecaptchaMsg(true);
+  };
+
+  const expiredCallback = (value: any) => {
+    setIsDisableSubmit(true);
+    setIsHiddenRecaptchaMsg(false);
+  };
 
   const sendData = () => {
     if (
@@ -20,16 +33,29 @@ const Contact: FC = () => {
       try {
         setIsLoading(true);
 
-        const response = await fetch("/admin/dev/php/api/contact.php", {
-          method: "POST",
-          body: JSON.stringify(values),
-        });
-
+        // const response = await fetch("/admin/dev/php/api/contacts.php", {
+        //   method: "POST",
+        //   body: JSON.stringify(values),
+        // });
+        const response = await fetch(
+          "http://localhost/Sites/cyberelders/api/contacts.php",
+          {
+            method: "POST",
+            body: JSON.stringify(values),
+            mode: "cors", // no-cors, cors, *same-origin
+            cache: "no-cache",
+            credentials: "same-origin",
+            headers: {
+              "Content-Type": "application/json; charset=utf-8",
+            },
+          }
+        );
+        console.log(response);
         if (!response.ok) {
           throw new Error("例外が発生");
         } else {
           const jsonResponse = await response.json();
-
+          console.log(jsonResponse);
           if (!jsonResponse.status) {
             throw new Error("例外が発生");
           } else {
@@ -174,6 +200,20 @@ const Contact: FC = () => {
           </div>
           <div className="p-form">
             <div className="p-form__submit">
+              <div className="p-form__recaptcha">
+                <ReCAPTCHA
+                  sitekey="6LeuUQwaAAAAAGjn93Nj-NAQSAAqW2VNTdkEUhuT"
+                  onChange={verifyCallback}
+                  onExpired={expiredCallback}
+                />
+                <span
+                  className={`p-form__recaptcha-caution c-text--caution ${
+                    isHiddenRecaptchaMsg && "u-display--hidden"
+                  }`}
+                >
+                  送信するにはチェックを入れてください
+                </span>
+              </div>
               {isLoading ? (
                 <input
                   type="button"
@@ -187,6 +227,7 @@ const Contact: FC = () => {
                   className="c-button c-button__submit"
                   value="同意して送信する"
                   onClick={handleSubmit}
+                  disabled={isDisableSubmit}
                 />
               )}
             </div>

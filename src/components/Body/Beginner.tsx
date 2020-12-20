@@ -1,9 +1,13 @@
 import React from "react";
+import CharaImage from "images/chara.png";
 
 function Beginner() {
   return (
     <section id="beginner" className="u-anchor__adjust">
-      <h2>初めての方へ</h2>
+      <h2>
+        <img alt="キャラクター" src={CharaImage} className="c-image__chara" />
+        初めての方へ
+      </h2>
       <h3>CYBER ELDERSとは</h3>
       <div className="p-main__article">
         CYBER ELDERSは、代表の宮本が

@@ -1,6 +1,8 @@
 .p-main {
   & h2 {
     margin-bottom: 16px;
+    display: flex;
+    align-items: center;
   }
 
   & h3 {

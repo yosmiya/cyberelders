@@ -28,3 +28,16 @@
 .p-form__notice {
   margin-left: 8px;
 }
+
+.p-form__recaptcha {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.p-form__recaptcha-caution {
+  font-weight: bold;
+  font-size: 1rem;
+}

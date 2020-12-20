@@ -74,10 +74,18 @@
   &:hover {
     color: #fff;
   }
+
+  &:disabled {
+    background-color: #e6e6e6;
+    border: 1px solid #e6e6e6;
+    color: #696969;
+    cursor: default;
+  }
 }
 
 .c-button--loading {
   background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
   color: #696969;
   cursor: default;
 

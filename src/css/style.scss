@@ -29,11 +29,13 @@
 @import "Object/Component/c-button.scss";
 @import "Object/Component/c-error.scss";
 @import "Object/Component/c-form.scss";
+@import "Object/Component/c-image.scss";
 @import "Object/Component/c-logo.scss";
 @import "Object/Component/c-menu.scss";
 @import "Object/Component/c-modal.scss";
 @import "Object/Component/c-navigation.scss";
 @import "Object/Component/c-table.scss";
+@import "Object/Component/c-text.scss";
 
 // ---------------------------------------------
 // Project
@@ -57,6 +59,7 @@
 // ---------------------------------------------
 
 @import "Object/Utility/u-anchor.scss";
+@import "Object/Utility/u-display.scss";
 @import "Object/Utility/u-font.scss";
 @import "Object/Utility/u-height.scss";
 @import "Object/Utility/u-margin.scss";

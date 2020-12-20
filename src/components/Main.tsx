@@ -12,13 +12,14 @@ import Footer from "components/Footer/Footer";
 import Counseling from "components/Counseling/Counseling";
 import ScrollToTop from "components/Common/ScrollToTop";
 
+//<BrowserRouter basename="/admin/dev/build">
+
 const Main: FC = () => {
   return (
-    <BrowserRouter basename="/admin/dev/build">
+    <BrowserRouter>
       <ScrollToTop />
       <div>
         <Header />
-        {/* <Switch> */}
         <Route exact path="/">
           <MainImage />
           <main className="l-main p-main">
@@ -38,9 +39,6 @@ const Main: FC = () => {
             <Counseling />
           </main>
         </Route>
-        {/* <Route>error</Route>
-          <Redirect to="/" />
-        </Switch> */}
         <Footer />
       </div>
     </BrowserRouter>
