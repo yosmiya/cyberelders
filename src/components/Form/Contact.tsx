@@ -42,12 +42,12 @@ const Contact: FC = () => {
           {
             method: "POST",
             body: JSON.stringify(values),
-            mode: "cors", // no-cors, cors, *same-origin
-            cache: "no-cache",
-            credentials: "same-origin",
-            headers: {
-              "Content-Type": "application/json; charset=utf-8",
-            },
+            // mode: "cors", // no-cors, cors, *same-origin
+            // cache: "no-cache",
+            // credentials: "same-origin",
+            // headers: {
+            //   "Content-Type": "application/json; charset=utf-8",
+            // },
           }
         );
         console.log(response);
