@@ -35,6 +35,10 @@
 @media screen and (max-width: 920px) {
   .c-navigation {
     margin: 0;
+
+    & > ul {
+      flex-direction: column;
+    }
   }
 
   .c-navigation__list {

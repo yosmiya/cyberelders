@@ -1,9 +1,13 @@
 import React from "react";
+import CharaImage from "images/chara.png";
 
 function Teacher() {
   return (
     <section id="teacher" className="u-anchor__adjust">
-      <h2>講師紹介</h2>
+      <h2>
+        <img alt="キャラクター" src={CharaImage} className="c-image__chara" />
+        講師紹介
+      </h2>
       <div className="p-teacher">
         <table className="c-table">
           <tbody>

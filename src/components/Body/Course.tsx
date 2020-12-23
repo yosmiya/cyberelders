@@ -1,9 +1,13 @@
 import React from "react";
+import CharaImage from "images/chara.png";
 
 function Course() {
   return (
     <section id="course" className="u-anchor__adjust">
-      <h2>コース</h2>
+      <h2>
+        <img alt="キャラクター" src={CharaImage} className="c-image__chara" />
+        コース
+      </h2>
       <div className="p-main__article">
         ・AI×pythonコース
         <br />

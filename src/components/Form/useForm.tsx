@@ -1,21 +1,14 @@
 import { useState, useEffect } from "react";
+import { Contact } from "services/models/contact";
 
-type State = {
-  name: string;
-  kana: string;
-  mail: string;
-  title: string;
-  inquiry: string;
-  all: string;
-};
-
-const defState: State = {
+const defState: Contact = {
   name: "",
   kana: "",
   mail: "",
   title: "",
   inquiry: "",
   all: "",
+  recaptcha: "",
 };
 
 const useForm = (callback: Function, validate: Function) => {

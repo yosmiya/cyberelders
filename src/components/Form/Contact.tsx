@@ -3,19 +3,23 @@ import useForm from "./useForm";
 import validate from "./Validation";
 import Complete from "components/Form/Complete";
 import ReCAPTCHA from "react-google-recaptcha";
+import CharaImage from "images/chara.png";
 
 const Contact: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [cssDispDialog, setCssDispDialog] = useState("");
   const [isDisableSubmit, setIsDisableSubmit] = useState(true);
   const [isHiddenRecaptchaMsg, setIsHiddenRecaptchaMsg] = useState(false);
+  const [recaptchaValue, setRecaptchaValue] = useState("");
 
   const verifyCallback = (value: any) => {
+    setRecaptchaValue(value);
     setIsDisableSubmit(false);
     setIsHiddenRecaptchaMsg(true);
   };
 
-  const expiredCallback = (value: any) => {
+  const expiredCallback = () => {
+    setRecaptchaValue("");
     setIsDisableSubmit(true);
     setIsHiddenRecaptchaMsg(false);
   };
@@ -29,41 +33,30 @@ const Contact: FC = () => {
       return;
     }
 
+    values.recaptcha = recaptchaValue;
+
     const setData = async () => {
       try {
         setIsLoading(true);
 
-        // const response = await fetch("/admin/dev/php/api/contacts.php", {
-        //   method: "POST",
-        //   body: JSON.stringify(values),
-        // });
-        const response = await fetch(
-          "http://localhost/Sites/cyberelders/api/contacts.php",
-          {
-            method: "POST",
-            body: JSON.stringify(values),
-            // mode: "cors", // no-cors, cors, *same-origin
-            // cache: "no-cache",
-            // credentials: "same-origin",
-            // headers: {
-            //   "Content-Type": "application/json; charset=utf-8",
-            // },
-          }
-        );
-        console.log(response);
+        //"http://localhost/Sites/cyberelders/api/contacts.php",
+        const response = await fetch("/admin/dev/php/api/contacts.php", {
+          method: "POST",
+          body: JSON.stringify(values),
+        });
+
         if (!response.ok) {
-          throw new Error("例外が発生");
+          throw new Error("申し訳ございません、再度お試しください");
         } else {
           const jsonResponse = await response.json();
-          console.log(jsonResponse);
           if (!jsonResponse.status) {
-            throw new Error("例外が発生");
+            throw new Error(jsonResponse.error);
           } else {
             handleShowDialog();
           }
         }
       } catch (error) {
-        alert("申し訳ございません、再度お試しください");
+        alert(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -96,7 +89,10 @@ const Contact: FC = () => {
 
   return (
     <section id="contact" className="main-contact u-anchor__adjust">
-      <h2>お問い合わせ</h2>
+      <h2>
+        <img alt="キャラクター" src={CharaImage} className="c-image__chara" />
+        お問い合わせ
+      </h2>
       <div className="p-article">
         <div className="p-article__content">
           <div className="p-form">

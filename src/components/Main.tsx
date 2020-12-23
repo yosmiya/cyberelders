@@ -16,7 +16,7 @@ import ScrollToTop from "components/Common/ScrollToTop";
 
 const Main: FC = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/admin/dev/build">
       <ScrollToTop />
       <div>
         <Header />

@@ -10,4 +10,5 @@ export type Counseling = {
   mail: string;
   other: string;
   all: string;
+  recaptcha: string;
 };

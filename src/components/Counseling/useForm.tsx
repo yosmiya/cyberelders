@@ -13,6 +13,7 @@ const defState: Counseling = {
   mail: "",
   other: "",
   all: "",
+  recaptcha: "",
 };
 
 const useForm = (callback: Function, validate: Function) => {

@@ -2,6 +2,8 @@ import React, { FC, useState } from "react";
 import useForm from "./useForm";
 import validate from "./Validation";
 import Complete from "components/Counseling/Complete";
+import ReCAPTCHA from "react-google-recaptcha";
+import CharaImage from "images/chara.png";
 
 const Counseling: FC = () => {
   const [isShowCourse, setIsShowCourse] = useState(false);
@@ -9,6 +11,21 @@ const Counseling: FC = () => {
   const [courseList, setCourseList] = useState<String[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [cssDispDialog, setCssDispDialog] = useState("");
+  const [isDisableSubmit, setIsDisableSubmit] = useState(true);
+  const [isHiddenRecaptchaMsg, setIsHiddenRecaptchaMsg] = useState(false);
+  const [recaptchaValue, setRecaptchaValue] = useState("");
+
+  const verifyCallback = (value: any) => {
+    setRecaptchaValue(value);
+    setIsDisableSubmit(false);
+    setIsHiddenRecaptchaMsg(true);
+  };
+
+  const expiredCallback = () => {
+    setRecaptchaValue("");
+    setIsDisableSubmit(true);
+    setIsHiddenRecaptchaMsg(false);
+  };
 
   const sendData = () => {
     if (
@@ -18,6 +35,8 @@ const Counseling: FC = () => {
     ) {
       return;
     }
+
+    values.recaptcha = recaptchaValue;
 
     const setData = async () => {
       try {
@@ -29,18 +48,17 @@ const Counseling: FC = () => {
         });
 
         if (!response.ok) {
-          throw new Error("例外が発生");
+          throw new Error("申し訳ございません、再度お試しください");
         } else {
           const jsonResponse = await response.json();
-
           if (!jsonResponse.status) {
-            throw new Error("例外が発生");
+            throw new Error(jsonResponse.error);
           } else {
             handleShowDialog();
           }
         }
       } catch (error) {
-        alert("申し訳ございません、再度お試しください");
+        alert(error.message);
       } finally {
         setIsLoading(false);
       }
@@ -107,7 +125,10 @@ const Counseling: FC = () => {
 
   return (
     <section id="counseling" className="p-counseling">
-      <h2 className="p-counseling__title">無料カウンセリング</h2>
+      <h2 className="p-counseling__title">
+        <img alt="キャラクター" src={CharaImage} className="c-image__chara" />
+        無料カウンセリング
+      </h2>
       <div className="p-article">
         <div className="p-article__content">
           こちらは無料カウンセリングページです。
@@ -316,6 +337,20 @@ const Counseling: FC = () => {
           </div>
           <div className="p-form">
             <div className="p-form__submit">
+              <div className="p-form__recaptcha">
+                <ReCAPTCHA
+                  sitekey="6LeuUQwaAAAAAGjn93Nj-NAQSAAqW2VNTdkEUhuT"
+                  onChange={verifyCallback}
+                  onExpired={expiredCallback}
+                />
+                <span
+                  className={`p-form__recaptcha-caution c-text--caution ${
+                    isHiddenRecaptchaMsg && "u-display--hidden"
+                  }`}
+                >
+                  送信するにはチェックを入れてください
+                </span>
+              </div>
               {isLoading ? (
                 <input
                   type="button"
@@ -329,6 +364,7 @@ const Counseling: FC = () => {
                   className="c-button c-button__submit"
                   value="同意して送信する"
                   onClick={handleSubmit}
+                  disabled={isDisableSubmit}
                 />
               )}
             </div>

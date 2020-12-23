@@ -1,9 +1,13 @@
 import React from "react";
+import CharaImage from "images/chara.png";
 
 function Question() {
   return (
     <section id="question" className="p-question u-anchor__adjust">
-      <h2>よくあるご質問</h2>
+      <h2>
+        <img alt="キャラクター" src={CharaImage} className="c-image__chara" />
+        よくあるご質問
+      </h2>
       <div className="p-main__article">
         <nav className="c-accordion">
           <label className="c-accordion__title" htmlFor="menu1">
