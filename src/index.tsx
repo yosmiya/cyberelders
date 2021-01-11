@@ -4,10 +4,14 @@ import "./index.css";
 import "css/style.scss";
 import Main from "./components/Main";
 import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
 
+//<BrowserRouter basename="/admin/dev/build">
 ReactDOM.render(
   <React.StrictMode>
-    <Main />
+    <BrowserRouter>
+      <Main />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

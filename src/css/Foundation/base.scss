@@ -27,8 +27,13 @@ section {
   padding: 0;
   border: 0;
   font-weight: normal;
-  list-style: none;
   text-decoration: none;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
 }
 
 header {
@@ -39,11 +44,13 @@ header {
 }
 
 body {
-  color: #333333;
+  color: #183553;
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
     Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   line-height: 1.8;
   width: 100%;
+
+  letter-spacing: 0.05em;
 }
 
 button:focus,
@@ -63,12 +70,15 @@ a:hover {
 }
 
 h1 {
-  color: #000000;
+  font-weight: bold;
 }
 
 h2 {
-  font-size: 24px;
-  text-align: left;
+  color: #ff9800;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.2;
+  letter-spacing: 0.3em;
 }
 
 h3 {
@@ -84,9 +94,18 @@ select {
   box-sizing: border-box;
 }
 
-input {
+input,
+textarea {
   -webkit-appearance: none;
   border-radius: 0;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
 }
 
 ::-webkit-input-placeholder {
@@ -131,4 +150,66 @@ hr {
   margin: 0;
   border-width: 1px 0 0;
   margin-bottom: 40px;
+}
+
+details {
+  display: block;
+  font-size: 0.86rem;
+  letter-spacing: 0.05em;
+  line-height: 2.2;
+  border: 1px solid #c9c9c9;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+details div {
+  padding: 16px 20px;
+}
+
+details:not(:last-child) {
+  margin-bottom: 25px;
+}
+
+summary {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 16px 20px;
+  position: relative;
+  display: block; /* 矢印を消す */
+  padding-left: 60px; /* アイコン分の余白 */
+  cursor: pointer;
+  outline: none;
+}
+summary::-webkit-details-marker {
+  display: none; /* 矢印を消す */
+}
+/* 疑似要素でアイコンを表示 */
+summary:before,
+summary:after {
+  content: "";
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+summary:after {
+  left: 31px;
+  width: 5px;
+  height: 5px;
+  border: 7px solid transparent;
+  border-left: 10px solid #fe7e17;
+  box-sizing: border-box;
+  transition: 0.1s;
+}
+/* オープン時 */
+details[open] summary:after {
+  transform: rotate(90deg); /* 90度回転 */
+  left: 27px;
+  top: 5px;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #c9c9c9;
+  border-radius: 20px 20px 0px 0px;
 }

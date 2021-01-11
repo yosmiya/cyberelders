@@ -1,0 +1,9 @@
+.c-list {
+  padding-left: 20px;
+}
+
+.c-list {
+  & li {
+    margin-bottom: 10px;
+  }
+}

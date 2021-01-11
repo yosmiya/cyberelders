@@ -1,16 +1,14 @@
 .c-button {
   display: inline-block;
-  font-size: 0.86rem;
+  font-size: 0.75rem;
   font-weight: bold;
-  line-height: 1;
   text-align: center;
-  padding: 0.8rem 1.2rem;
+  padding: 0.4rem 0.9rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 25px;
   cursor: pointer;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  letter-spacing: 0.05em;
 
   &:hover {
     opacity: 0.8;
@@ -28,27 +26,21 @@
 
 .c-button__inquiry {
   color: #fff;
-  border: 1px solid #ff7e00;
-  background-color: #ff7e00;
+  border: 1px solid #fe7e17;
+  background-color: #fe7e17;
 
   &:hover {
     color: #fff;
   }
 }
 
-.c-button__inquiry--header {
-  font-size: 0.75rem;
-  padding: 0.6rem 1.1rem;
-  border-radius: 100px;
-}
-
 .c-button__contact {
-  color: #ff7e00;
-  border: 1px solid #ff7e00;
+  color: #fe7e17;
+  border: 1px solid #fe7e17;
   background-color: #fff;
 
   &:hover {
-    color: #ff7e00;
+    color: #fe7e17;
   }
 }
 
@@ -68,8 +60,8 @@
 .c-button__submit {
   width: 100%;
   color: #fff;
-  border: 1px solid #ff7e00;
-  background-color: #ff7e00;
+  border: 1px solid #fe7e17;
+  background-color: #fe7e17;
 
   &:hover {
     color: #fff;

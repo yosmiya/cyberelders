@@ -2,6 +2,16 @@
   margin-bottom: 10px;
 }
 
+.u-mb20 {
+  margin-bottom: 20px;
+}
+
 .u-mb30 {
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .u-mt110 {
+    margin-top: 110px;
+  }
 }

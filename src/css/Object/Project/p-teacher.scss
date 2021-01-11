@@ -1,5 +1,59 @@
-.p-teacher {
-  text-align: center;
-  font-size: 0.78em;
-  margin-bottom: 48px;
+.p-teacher__box {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.p-teacher__img {
+  width: 40%;
+
+  & img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.p-teacher__profile {
+  width: 50%;
+  text-align: left;
+}
+
+.p-teacher__text {
+  margin-bottom: 15px;
+}
+
+.p-teacher__profile-image {
+  width: 50%;
+  max-width: 200px;
+}
+
+@media screen and (max-width: 767px) {
+  .p-teacher__box {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .p-teacher__img,
+  .p-teacher__profile {
+    width: inherit;
+  }
+
+  .p-teacher__img {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    margin-bottom: 20px;
+
+    & img {
+      width: 300px;
+      height: 300px;
+      max-width: 300px;
+      max-height: 300px;
+    }
+  }
+
+  .p-teacher__name {
+    text-align: center;
+  }
 }

@@ -1,85 +1,48 @@
 import React from "react";
-import CharaImage from "images/chara.png";
+import Img01 from "images/beginner/img01.jpg";
+import Img02 from "images/beginner/img02.jpg";
 
 function Beginner() {
   return (
     <section id="beginner" className="u-anchor__adjust">
-      <h2>
-        <img alt="キャラクター" src={CharaImage} className="c-image__chara" />
-        初めての方へ
-      </h2>
-      <h3>CYBER ELDERSとは</h3>
+      <h2 className="p-main__marginRL">特徴</h2>
       <div className="p-main__article">
-        CYBER ELDERSは、代表の宮本が
-        <br />
-        元介護福祉士として介護の現場で感じた問題、そして　ケニア現地でスラム街の子供達の支援活動を行う中で感じた問題、
-        <br />
-        これをITの力で解決しよう！そしてそのような貢献の輪を拡げていきたいという想いのもと立ち上げました。
-        <br />
-        <br />
-        CYBER
-        ELDERSのオンラインプログラミングスクールは、代表自身が実際に非IT業界からＩＴ業界に転職した際に感じた苦労の経験に基づきカリキュラム
-        その他を構成しております為、「未経験の方」に特に配慮されたものになっております。
-        <br />
-        <br />
-        AIの民主化が叫ばれている昨今、プログラミングの知識はもはやエンジニアだけのものではないと考えます。
-        <br />
-        また同時にプログラミングしかできないエンジニアは今後は淘汰されていくとも考えます。
-        <br />
-        <br />
-        よってCYBER
-        ELDERSではプログラミング以外の部分にもしっかりと目を向けて、「目的達成」に貢献できる場を提供していきたいと思います。
-        <br />
-        一例として発表会では、問題提起～解決案の提示、コスト試算、その後のアクション時に想定されるシナリオをプランニングし打ち手を立て、誰にどのようにアプローチするのかといった戦略などを語って頂きます。
-        <br />
-        <br />
-        楽しくを学べることが大切だと思いますのでそういった仕組みを皆さんの声を聞き反映させていきます。
-      </div>
-      <h3>CYBER ELDERSで学ぶメリット・特色</h3>
-      <div className="p-main__article">
-        ・Amazon主催のAI技術を活用した自動走行ロボットレースの
-        <span className="u-font--red">
-          <b>世界大会で準優勝</b>
-        </span>
-        に輝いた講師のマンツーマンレッスンが受けられます。
-        <br />
-        <br />
-        ・経験豊富な現役エンジニアにslackでいつでも質問ができます。
-        <br />
-        <br />
-        ・本気の発表会でスキルを高めることができるとともに自身をアピールする機会が得られます。
-        <br />
-        <br />
-        ・オンラインなので自宅で自分のペースでじっくり進めることができます。
-        <br />
-        <br />
-        ・未経験の方でも大歓迎です。気軽に質問してください
-      </div>
-      <h3>ご利用の流れ（契約から～）</h3>
-      <div className="p-main__article">
-        1.
-        無料カウンセリングからエントリーシートを記入の上、WEBからご提出ください。
-        <br />
-        ↓
-        <br />
-        2. エントリーシートをもとに面談・説明および・ヒアリング
-        <br />
-        ↓
-        <br />
-        3. 目的・ご要望に沿えるか等を検討させて頂きます。
-        <br />
-        ※2週間以内に結果をメールにてご連絡差し上げます。メールが届かない場合はお手数ですがご連絡ください。
-        <br />
-        ↓
-        <br />
-        4. 入校手続き
-        <br />
-        ※持参物等、詳細はメールに記載致しますのでご確認ください
-        <br />
-        <br />
-        説明しておくべき事項のピックアップ
-        <br />
-        ※制作依頼はできません
+        <div className="p-main__flexbox">
+          <div className="p-main__flexbox-img">
+            <img src={Img01} alt="" />
+          </div>
+          <div className="p-main__flexbox-text p-main__marginRL">
+            <p className="p-main__article-title p-main__flexbox-header">
+              お一人おひとりに合わせた最適なプラン
+            </p>
+            <p className="p-main__article-text p-main__flexbox-contents">
+              CYBER ELDERSのオンラインプログラミングスクールは
+              <br />
+              「プログラミング未経験の方」に配慮された構成となっております。
+              <br />
+              プログラミング以外の部分にもしっかりと目を向けて、受講生の皆様が楽しみながら「目的達成」に貢献できる場を提供していきたいと思います。
+              <br />
+              目的に応じたオリジナルのカリキュラムをもとに、お一人おひとりに合わせた最適なプランをご提供します。
+              <br />
+            </p>
+          </div>
+        </div>
+        <div className="p-main__flexbox">
+          <div className="p-main__flexbox-img">
+            <img src={Img02} alt="" />
+          </div>
+          <div className="p-main__flexbox-text p-main__marginRL">
+            <p className="p-main__article-title p-main__flexbox-header">
+              講師はAI走行ロボットレースの世界大会で準優勝
+            </p>
+            <p className="p-main__article-text p-main__flexbox-contents">
+              Amazon主催のAI技術を活用した自動走行ロボットレースの世界大会で準優勝に輝いた講師のマンツーマンレッスンが受けられます。
+              <br />
+              また経験豊富な現役エンジニアにslackでいつでも質問ができます。
+              <br />
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

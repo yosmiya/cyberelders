@@ -1,17 +1,120 @@
 .p-main {
   & h2 {
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
+    text-align: left;
+    margin-bottom: 60px;
   }
 
-  & h3 {
-    margin-bottom: 16px;
+  & section:not(:last-child) {
+    margin-bottom: 160px;
   }
 }
 
+.p-main__marginRL {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.p-main__article-title {
+  font-size: 1.25rem;
+  margin-bottom: 35px;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  line-height: 1.875;
+}
+
+.p-main__article-text {
+  font-size: 0.86rem;
+  letter-spacing: 0.05em;
+  line-height: 2.2;
+}
+
 .p-main__article {
+  padding-top: 60px;
+  padding-bottom: 60px;
   text-align: left;
-  font-size: 0.78em;
-  margin-bottom: 48px;
+  font-size: 0.9rem;
+  background-color: #fafafa;
+}
+
+.p-main__flexbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.p-main__flexbox:not(:last-child) {
+  margin-bottom: 120px;
+}
+
+.p-main__flexbox:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.p-main__flexbox-text {
+  width: 45%;
+}
+
+.p-main__flexbox-header {
+  margin-bottom: 35px;
+}
+
+.p-main__flexbox-img {
+  width: 50%;
+
+  & img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .p-main {
+    & section:not(:last-child) {
+      margin-bottom: 100px;
+    }
+  }
+
+  .p-main__flexbox,
+  .p-main__flexbox:nth-child(odd) {
+    flex-direction: column;
+  }
+
+  .p-main__flexbox-text {
+    width: inherit;
+  }
+
+  //.p-main__flexbox-text,
+  .p-main__flexbox-img {
+    width: 100%; /*flex: 1;*/
+  }
+
+  .p-main__flexbox-img {
+    margin-bottom: 20px;
+  }
+
+  .p-main__flexbox:nth-child(even) .p-main__flexbox-img {
+    padding-left: 20px;
+  }
+
+  .p-main__flexbox:nth-child(odd) .p-main__flexbox-img {
+    padding-right: 20px;
+  }
+
+  .p-main__marginRL {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .p-main__article-title {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+  }
+
+  .p-main__article-text {
+    font-size: 0.83rem;
+  }
+
+  .p-main__flexbox:not(:last-child) {
+    margin-bottom: 60px;
+  }
 }

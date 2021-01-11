@@ -1,138 +1,46 @@
 import React from "react";
-import CharaImage from "images/chara.png";
 
 function Question() {
   return (
     <section id="question" className="p-question u-anchor__adjust">
-      <h2>
-        <img alt="キャラクター" src={CharaImage} className="c-image__chara" />
-        よくあるご質問
-      </h2>
+      <h2 className="p-main__marginRL">よくあるご質問</h2>
       <div className="p-main__article">
-        <nav className="c-accordion">
-          <label className="c-accordion__title" htmlFor="menu1">
-            教材・カリキュラム
-          </label>
-          <input type="checkbox" id="menu1" className="c-accordion__toggle" />
-          <ul className="c-accordion__contens">
-            <label className="c-accordion__title" htmlFor="menu1_1">
-              CYBER ELDERSのカリキュラムに特徴はありますか？
-            </label>
-            <input
-              type="checkbox"
-              id="menu1_1"
-              className="c-accordion__toggle"
-            />
-            <ul className="c-accordion__contens">
-              <li className="menu_f2">
-                <span>menu1.2</span>
-              </li>
-            </ul>
-
-            <label className="c-accordion__title" htmlFor="menu1_2">
-              CYBER ELDERSオリジナル教材の教材費はいくらかかりますか？
-            </label>
-            <input
-              type="checkbox"
-              id="menu1_2"
-              className="c-accordion__toggle"
-            />
-            <ul className="c-accordion__contens">
-              <li className="menu_f2">
-                <span>menu1.2</span>
-              </li>
-            </ul>
-
-            <label className="c-accordion__title" htmlFor="menu1_3">
-              カリキュラム以外の内容についても質問・相談することは可能でしょうか？
-            </label>
-            <input
-              type="checkbox"
-              id="menu1_3"
-              className="c-accordion__toggle"
-            />
-            <ul className="c-accordion__contens">
-              <li className="menu_f2">
-                <span>menu1.2</span>
-              </li>
-            </ul>
-
-            <label className="c-accordion__title" htmlFor="menu1_4">
-              現在取り扱っている言語以外の追加は考えていますか？
-            </label>
-            <input
-              type="checkbox"
-              id="menu1_4"
-              className="c-accordion__toggle"
-            />
-            <ul className="c-accordion__contens">
-              <li className="menu_f2">
-                <span>menu1.2</span>
-              </li>
-            </ul>
-          </ul>
-          <label className="c-accordion__title" htmlFor="menu2">
-            CYBER ELDERSについて
-          </label>
-          <input type="checkbox" id="menu2" className="c-accordion__toggle" />
-          <ul className="c-accordion__contens">
-            <label className="c-accordion__title" htmlFor="menu2_1">
-              CYBER ELDERSのカリキュラムに特徴はありますか？
-            </label>
-            <input
-              type="checkbox"
-              id="menu2_1"
-              className="c-accordion__toggle"
-            />
-            <ul className="c-accordion__contens">
-              <li className="menu_f2">
-                <span>menu2.2</span>
-              </li>
-            </ul>
-
-            <label className="c-accordion__title" htmlFor="menu2_2">
-              CYBER ELDERSオリジナル教材の教材費はいくらかかりますか？
-            </label>
-            <input
-              type="checkbox"
-              id="menu2_2"
-              className="c-accordion__toggle"
-            />
-            <ul className="c-accordion__contens">
-              <li className="menu_f2">
-                <span>menu2.2</span>
-              </li>
-            </ul>
-
-            <label className="c-accordion__title" htmlFor="menu2_3">
-              カリキュラム以外の内容についても質問・相談することは可能でしょうか？
-            </label>
-            <input
-              type="checkbox"
-              id="menu2_3"
-              className="c-accordion__toggle"
-            />
-            <ul className="c-accordion__contens">
-              <li className="menu_f2">
-                <span>menu2.2</span>
-              </li>
-            </ul>
-
-            <label className="c-accordion__title" htmlFor="menu2_4">
-              現在取り扱っている言語以外の追加は考えていますか？
-            </label>
-            <input
-              type="checkbox"
-              id="menu2_4"
-              className="c-accordion__toggle"
-            />
-            <ul className="c-accordion__contens">
-              <li className="menu_f2">
-                <span>menu2.2</span>
-              </li>
-            </ul>
-          </ul>
-        </nav>
+        <div className="p-main__marginRL p-question__accordion">
+          <details>
+            <summary>初心者ですが問題ありませんか？</summary>
+            <div>
+              問題ありません。初心者の方でも講師がフォロー致します。
+              <br />
+              ただし、PCの基本的な操作が問題なくでき、期間内に必要な学習時間を確保できることが前提です。
+            </div>
+          </details>
+          <details>
+            <summary>学習に必要な環境は何ですか？</summary>
+            <div>文章が入る</div>
+          </details>
+          <details>
+            <summary>どんな流れで学習を進めますか？</summary>
+            <div>文章が入る</div>
+          </details>
+          <details>
+            <summary>いつまでに休みや遅刻の連絡をすればよいですか？</summary>
+            <div>文章が入る</div>
+          </details>
+          <details>
+            <summary>銀行振込のみで分割払いできますか？</summary>
+            <div>
+              お支払い方方法としましては、銀行振り込みのみです。分割方法も承っておりません。
+            </div>
+          </details>
+          <details>
+            <summary>支払期限はいつまでですか</summary>
+            <div>文章が入る</div>
+          </details>
+          <details>
+            <summary>領収書の発行はできますか？</summary>
+            <div>文章が入る</div>
+          </details>
+        </div>
       </div>
     </section>
   );

@@ -6,18 +6,19 @@
   table-layout: fixed;
 
   th {
-    font-weight: bold;
-    width: 20%;
-  }
-
-  td {
-    text-align: left;
+    width: 7em;
+    color: #7c7c7c;
+    font-weight: normal;
   }
 
   th,
   td {
     background-color: #fff;
-    border: 1px solid #bbb;
-    padding: 1em;
+    border-width: 0px 0px 1px 0px;
+    border-color: #c9c9c9;
+    border-style: solid;
+    padding: 10px;
+    vertical-align: top;
+    text-align: left;
   }
 }

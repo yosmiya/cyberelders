@@ -3,7 +3,6 @@ import useForm from "./useForm";
 import validate from "./Validation";
 import Complete from "components/Form/Complete";
 import ReCAPTCHA from "react-google-recaptcha";
-import CharaImage from "images/chara.png";
 
 const Contact: FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +39,8 @@ const Contact: FC = () => {
         setIsLoading(true);
 
         //"http://localhost/Sites/cyberelders/api/contacts.php",
-        const response = await fetch("/admin/dev/php/api/contacts.php", {
+        //"/admin/dev/php/api/contacts.php",
+        const response = await fetch("/php/api/contacts.php", {
           method: "POST",
           body: JSON.stringify(values),
         });
@@ -89,12 +89,9 @@ const Contact: FC = () => {
 
   return (
     <section id="contact" className="main-contact u-anchor__adjust">
-      <h2>
-        <img alt="キャラクター" src={CharaImage} className="c-image__chara" />
-        お問い合わせ
-      </h2>
-      <div className="p-article">
-        <div className="p-article__content">
+      <h2 className="p-main__marginRL">お問い合わせ</h2>
+      <div className="p-main__article p-article ">
+        <div className="p-main__marginRL p-contact__form p-article__content">
           <div className="p-form">
             <div className="p-form__header">
               <span className="c-form__title">氏名</span>
@@ -220,7 +217,7 @@ const Contact: FC = () => {
               ) : (
                 <input
                   type="submit"
-                  className="c-button c-button__submit"
+                  className="p-form__submit-button c-button c-button__submit"
                   value="同意して送信する"
                   onClick={handleSubmit}
                   disabled={isDisableSubmit}
@@ -230,23 +227,25 @@ const Contact: FC = () => {
             {errors.all && (
               <p className="p-form__errmsg c-error">{errors.all}</p>
             )}
-            <div className="p-optin c-notice">
+          </div>
+          <div className="p-form p-optin">
+            <div className="p-optin__container c-notice">
               <span className="p-optin__text">
                 フォームを送信することにより、
-                <a href="#privacypolicy" className="p-optin__link">
+                <a href="#privacypolicy" className="c-link">
                   プライバシーポリシー
                 </a>
                 に同意します
               </span>
             </div>
-            <div className="p-optin c-notice">
+            <div className="p-optin__container c-notice">
               <span className="p-optin__text">
                 ※注意事項
                 <br />
                 ・お問い合わせについては可能な限り1営業日以内に返信させて頂きますが、最大3営業日掛かる場合がございますので、予めご了承ください。
                 <br />
                 ・お問い合わせの前に、
-                <a href="#question" className="p-optin__link">
+                <a href="#question" className="c-link">
                   よくある質問
                 </a>
                 をご確認ください。

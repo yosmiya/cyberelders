@@ -31,13 +31,13 @@ const Header: FC = () => {
               </a>
             </li>
             <li className="c-navigation__list">
-              <a href="./#teacher" className="c-navigation__link">
-                講師紹介
+              <a href="./#course" className="c-navigation__link">
+                コース
               </a>
             </li>
             <li className="c-navigation__list">
-              <a href="./#course" className="c-navigation__link">
-                コース
+              <a href="./#teacher" className="c-navigation__link">
+                講師紹介
               </a>
             </li>
             <li className="c-navigation__list">

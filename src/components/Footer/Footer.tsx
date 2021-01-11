@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <footer className="l-footer">
-      <div className="p-footer">
+      <div className="p-footer p-main__marginRL">
         <nav>
           <ul className="p-footer__navigation">
             <li className="p-footer__link">

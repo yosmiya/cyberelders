@@ -2,79 +2,106 @@
   position: relative;
 }
 
-.p-main-image__inner {
+.p-main-image__image {
+  object-fit: cover;
+  height: calc(100vh - 95px);
   width: 100vw;
-  // height: 0;
-  height: 400px;
-  //background: url(/admin/dev/build/images/main5.jpg) no-repeat center center;
-  background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0.6),
-      rgba(0, 255, 0, 0)
-    ),
-    url(/admin/dev/build/images/main3.jpg);
-
-  background-size: cover;
-
-  /* 表示画像の高さ ÷ 表示画像の幅 × 100 */
-  //padding-top: 40.25%;
-
-  background-size: auto 400px;
-  background-repeat: no-repeat;
-  background-position: right;
+  min-height: 400px;
+  vertical-align: bottom;
 }
 
 .p-main-image__container {
   position: absolute;
-  top: 0;
+  top: -60px;
   display: flex;
-  height: 100%;
-  margin-left: 50px;
-  align-items: flex-start;
+  height: 100vh;
   justify-content: center;
   flex-direction: column;
+  width: 100%;
+  color: #fff;
+}
+
+.p-main-image__noticearea {
+  margin-left: 80px;
 }
 
 .p-main-image__copy {
   // font-size: 5vw;
-  font-size: 1.8rem;
-  margin-bottom: 10px;
+  font-size: 1.7rem;
+  margin-bottom: 60px;
+  line-height: 2;
 }
 
-.p-main-image__inquiry {
+.p-main-image__button-field {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.p-main-image__button {
   margin-right: 20px;
 }
 
-.p-main-image__content {
-}
-.p-main-image__button {
-  display: flex;
-
-  justify-content: space-between;
+////////////////////////////
+// バナー部分
+.p-main-image__banner {
+  margin-top: 150px;
 }
 
-@media screen and (max-width: 920px) {
-  .p-main-image__inner {
-    /* 表示画像の高さ ÷ 表示画像の幅 × 100 */
-    //padding-top: 65.25%;
+.p-main-image__banner-img {
+  object-fit: cover;
+  width: 100vw;
+  vertical-align: bottom;
+}
+
+.p-main-image__banner-text-container {
+  padding: 80px 80px 160px 80px;
+}
+
+.p-main-image__banner-title {
+  font-size: 1.25rem;
+  margin-bottom: 35px;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  line-height: 1.875;
+}
+
+.p-main-image__banner-text {
+  font-size: 0.86rem;
+  letter-spacing: 0.05em;
+  line-height: 2.2;
+}
+
+@media screen and (max-width: 767px) {
+  .p-main-image__noticearea {
+    margin-left: 20px;
   }
-}
 
-@media screen and (max-width: 500px) {
   .p-main-image__copy {
-    font-size: 1.3rem;
-  }
-  .p-main-image__inquiry {
-    margin-right: 0px;
-    margin-bottom: 20px;
+    font-size: 1.6rem;
+    line-height: 1.8;
   }
 
-  .p-main-image__container {
-    margin-left: 0px;
-    width: 100%;
-    align-items: center;
+  .p-main-image__button-field {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
+
   .p-main-image__button {
-    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  .p-main-image__banner-text-container {
+    padding: 20px 20px 100px 20px;
+  }
+
+  .p-main-image__banner-title {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+  }
+
+  .p-main-image__banner-text {
+    font-size: 0.83rem;
   }
 }

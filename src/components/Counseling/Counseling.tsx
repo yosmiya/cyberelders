@@ -3,7 +3,6 @@ import useForm from "./useForm";
 import validate from "./Validation";
 import Complete from "components/Counseling/Complete";
 import ReCAPTCHA from "react-google-recaptcha";
-import CharaImage from "images/chara.png";
 
 const Counseling: FC = () => {
   const [isShowCourse, setIsShowCourse] = useState(false);
@@ -42,7 +41,8 @@ const Counseling: FC = () => {
       try {
         setIsLoading(true);
 
-        const response = await fetch("/admin/dev/php/api/counseling.php", {
+        //"/admin/dev/php/api/counseling.php",
+        const response = await fetch("/php/api/counseling.php", {
           method: "POST",
           body: JSON.stringify(values),
         });
@@ -125,17 +125,13 @@ const Counseling: FC = () => {
 
   return (
     <section id="counseling" className="p-counseling">
-      <h2 className="p-counseling__title">
-        <img alt="キャラクター" src={CharaImage} className="c-image__chara" />
-        無料カウンセリング
+      <h2 className="p-main__marginRL">
+        無料
+        <br />
+        カウンセリング
       </h2>
-      <div className="p-article">
-        <div className="p-article__content">
-          こちらは無料カウンセリングページです。
-          <br />
-          どのコースをご希望なのか、ご自身がどうなりたいのかなどお答えいただければと思います。
-        </div>
-        <div className="p-article__content">
+      <div className="p-main__article p-article">
+        <div className="p-main__marginRL p-counseling__form p-article__content">
           <div className="p-form">
             <div className="p-form__header">
               <span className="c-form__title">ご興味のある分野</span>
@@ -361,7 +357,7 @@ const Counseling: FC = () => {
               ) : (
                 <input
                   type="submit"
-                  className="c-button c-button__submit"
+                  className="p-form__submit-button c-button c-button__submit"
                   value="同意して送信する"
                   onClick={handleSubmit}
                   disabled={isDisableSubmit}

@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router";
 import Header from "components/Header/Header";
 import MainImage from "components/Body/MainImage";
@@ -10,13 +9,14 @@ import Question from "components/Body/Question";
 import Contact from "components/Form/Contact";
 import Footer from "components/Footer/Footer";
 import Counseling from "components/Counseling/Counseling";
-import ScrollToTop from "components/Common/ScrollToTop";
-
-//<BrowserRouter basename="/admin/dev/build">
+import ScrollToTop from "hooks/ScrollToTop";
+import { useTracking } from "hooks/useTracking";
 
 const Main: FC = () => {
+  useTracking("G-VZZ4SPWGKJ");
+
   return (
-    <BrowserRouter basename="/admin/dev/build">
+    <>
       <ScrollToTop />
       <div>
         <Header />
@@ -24,13 +24,9 @@ const Main: FC = () => {
           <MainImage />
           <main className="l-main p-main">
             <Beginner />
-            <hr />
-            <Teacher />
-            <hr />
             <Course />
-            <hr />
+            <Teacher />
             <Question />
-            <hr />
             <Contact />
           </main>
         </Route>
@@ -41,7 +37,7 @@ const Main: FC = () => {
         </Route>
         <Footer />
       </div>
-    </BrowserRouter>
+    </>
   );
 };
 

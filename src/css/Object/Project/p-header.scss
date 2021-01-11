@@ -11,6 +11,10 @@
   margin-left: auto;
 }
 
+.p-header__navigation {
+  font-size: 0.9475vw;
+}
+
 @media screen and (max-width: 920px) {
   .p-header__pc {
     display: none;
