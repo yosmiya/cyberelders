@@ -4,7 +4,7 @@ function Question() {
   return (
     <section id="question" className="p-question u-anchor__adjust">
       <h2 className="p-main__marginRL">よくあるご質問</h2>
-      <div className="p-main__article">
+      <div className="p-main__article p-article">
         <div className="p-main__marginRL p-question__accordion">
           <details>
             <summary>初心者ですが問題ありませんか？</summary>

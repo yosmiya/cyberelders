@@ -90,7 +90,7 @@ const Contact: FC = () => {
   return (
     <section id="contact" className="main-contact u-anchor__adjust">
       <h2 className="p-main__marginRL">お問い合わせ</h2>
-      <div className="p-main__article p-article ">
+      <div className="p-main__article p-article">
         <div className="p-main__marginRL p-contact__form p-article__content">
           <div className="p-form">
             <div className="p-form__header">
