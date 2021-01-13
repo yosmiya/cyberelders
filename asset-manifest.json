@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/cyberelders/static/css/main.cd6a83e7.chunk.css",
-    "main.js": "/cyberelders/static/js/main.234611c5.chunk.js",
-    "main.js.map": "/cyberelders/static/js/main.234611c5.chunk.js.map",
+    "main.js": "/cyberelders/static/js/main.38888537.chunk.js",
+    "main.js.map": "/cyberelders/static/js/main.38888537.chunk.js.map",
     "runtime-main.js": "/cyberelders/static/js/runtime-main.9076c17c.js",
     "runtime-main.js.map": "/cyberelders/static/js/runtime-main.9076c17c.js.map",
     "static/js/2.abacd08c.chunk.js": "/cyberelders/static/js/2.abacd08c.chunk.js",
     "static/js/2.abacd08c.chunk.js.map": "/cyberelders/static/js/2.abacd08c.chunk.js.map",
     "index.html": "/cyberelders/index.html",
-    "precache-manifest.b49264cbcc6564f8b687c494d496032b.js": "/cyberelders/precache-manifest.b49264cbcc6564f8b687c494d496032b.js",
+    "precache-manifest.b271d10b7b61db8a6b36d24ccc238b96.js": "/cyberelders/precache-manifest.b271d10b7b61db8a6b36d24ccc238b96.js",
     "service-worker.js": "/cyberelders/service-worker.js",
     "static/css/main.cd6a83e7.chunk.css.map": "/cyberelders/static/css/main.cd6a83e7.chunk.css.map",
     "static/js/2.abacd08c.chunk.js.LICENSE.txt": "/cyberelders/static/js/2.abacd08c.chunk.js.LICENSE.txt",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.9076c17c.js",
     "static/js/2.abacd08c.chunk.js",
     "static/css/main.cd6a83e7.chunk.css",
-    "static/js/main.234611c5.chunk.js"
+    "static/js/main.38888537.chunk.js"
   ]
 }
