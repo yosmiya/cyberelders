@@ -47,9 +47,16 @@ body {
   color: #183553;
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ",
     Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  // min-width: 1025px;
+  // font-family: "Noto Sans CJK JP", "Noto Sans JP", "游ゴシック", YuGothic,
+  //   "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
+  //   "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: YuGothic, 游ゴシック, Hiragino Kaku Gothic ProN, Hiragino Sans,
+    Meiryo, sans-serif;
+  font-feature-settings: "palt";
+
   line-height: 1.8;
   width: 100%;
-
   letter-spacing: 0.05em;
 }
 

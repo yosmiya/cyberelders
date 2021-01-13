@@ -1,5 +1,7 @@
 .c-button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.75rem;
   font-weight: bold;
   text-align: center;
@@ -9,6 +11,7 @@
   cursor: pointer;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  letter-spacing: 0.1em;
 
   &:hover {
     opacity: 0.8;

@@ -1,11 +1,13 @@
 .p-main {
+  //max-width: 980px;
+
   & h2 {
     text-align: left;
     margin-bottom: 60px;
   }
 
   & section:not(:last-child) {
-    margin-bottom: 160px;
+    margin-bottom: 120px;
   }
 }
 

@@ -12,7 +12,7 @@
 
 .p-main-image__container {
   position: absolute;
-  top: -60px;
+  top: -90px;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -26,10 +26,9 @@
 }
 
 .p-main-image__copy {
-  // font-size: 5vw;
-  font-size: 1.7rem;
+  font-size: 2.3rem;
   margin-bottom: 60px;
-  line-height: 2;
+  line-height: 1.6;
 }
 
 .p-main-image__button-field {
@@ -39,23 +38,14 @@
 }
 
 .p-main-image__button {
+  height: 3rem;
   margin-right: 20px;
 }
 
 ////////////////////////////
 // バナー部分
-.p-main-image__banner {
-  margin-top: 150px;
-}
-
-.p-main-image__banner-img {
-  object-fit: cover;
-  width: 100vw;
-  vertical-align: bottom;
-}
-
 .p-main-image__banner-text-container {
-  padding: 80px 80px 160px 80px;
+  padding: 60px 0px 120px 0px;
 }
 
 .p-main-image__banner-title {
@@ -73,6 +63,10 @@
 }
 
 @media screen and (max-width: 767px) {
+  .p-main-image__image {
+    height: calc(100vh - 60px);
+  }
+
   .p-main-image__noticearea {
     margin-left: 20px;
   }

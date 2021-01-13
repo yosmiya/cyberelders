@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import MainImg from "images/main/hero.jpg";
-import BannerImg from "images/main/banner.jpg";
 
 const MainImage: FC = () => {
   return (
@@ -38,12 +37,7 @@ const MainImage: FC = () => {
           </div>
         </div>
       </div>
-      <div className="p-main-image__banner">
-        <img
-          src={BannerImg}
-          alt="サイバーエルダーズ"
-          className="p-main-image__banner-img"
-        />
+      <div className="p-main-image__banner p-main__marginRL">
         <div className="p-main-image__banner-text-container">
           <p className="p-main-image__banner-title">
             CYBER ELDERSなら
