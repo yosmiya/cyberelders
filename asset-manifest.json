@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/cyberelders/static/css/main.cd6a83e7.chunk.css",
+    "main.js": "/cyberelders/static/js/main.234611c5.chunk.js",
+    "main.js.map": "/cyberelders/static/js/main.234611c5.chunk.js.map",
+    "runtime-main.js": "/cyberelders/static/js/runtime-main.9076c17c.js",
+    "runtime-main.js.map": "/cyberelders/static/js/runtime-main.9076c17c.js.map",
+    "static/js/2.abacd08c.chunk.js": "/cyberelders/static/js/2.abacd08c.chunk.js",
+    "static/js/2.abacd08c.chunk.js.map": "/cyberelders/static/js/2.abacd08c.chunk.js.map",
+    "index.html": "/cyberelders/index.html",
+    "precache-manifest.b49264cbcc6564f8b687c494d496032b.js": "/cyberelders/precache-manifest.b49264cbcc6564f8b687c494d496032b.js",
+    "service-worker.js": "/cyberelders/service-worker.js",
+    "static/css/main.cd6a83e7.chunk.css.map": "/cyberelders/static/css/main.cd6a83e7.chunk.css.map",
+    "static/js/2.abacd08c.chunk.js.LICENSE.txt": "/cyberelders/static/js/2.abacd08c.chunk.js.LICENSE.txt",
+    "static/media/hero.jpg": "/cyberelders/static/media/hero.5f5288a6.jpg",
+    "static/media/img01.jpg": "/cyberelders/static/media/img01.ab7a91e5.jpg",
+    "static/media/img02.jpg": "/cyberelders/static/media/img02.800da152.jpg",
+    "static/media/php_logo.svg": "/cyberelders/static/media/php_logo.2c8cc4a6.svg",
+    "static/media/python_logo.svg": "/cyberelders/static/media/python_logo.7d9fccaf.svg",
+    "static/media/swift_logo.svg": "/cyberelders/static/media/swift_logo.da81c9c9.svg",
+    "static/media/teacher.png": "/cyberelders/static/media/teacher.2aaf97ef.png",
+    "static/media/teacher_achievement.jpg": "/cyberelders/static/media/teacher_achievement.21d0033f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9076c17c.js",
+    "static/js/2.abacd08c.chunk.js",
+    "static/css/main.cd6a83e7.chunk.css",
+    "static/js/main.234611c5.chunk.js"
+  ]
+}
