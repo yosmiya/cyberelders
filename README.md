@@ -1,23 +1,23 @@
 ---------------------------
 使用言語
 ---------------------------
-HTML5
-CSS3
-Sass
-Javascript
-React
-Typescript
-PHP
-MySQL
+HTML5<br />
+CSS3<br />
+Sass<br />
+Javascript<br />
+React<br />
+Typescript<br />
+PHP<br />
+MySQL<br />
 
 ---------------------------
 使用ツール
 ---------------------------
-GitHub
-Illustrator
-Photoshop
-AdobeXD
-Visual Studio Code
+GitHub<br />
+Illustrator<br />
+Photoshop<br />
+AdobeXD<br />
+Visual Studio Code<br />
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
